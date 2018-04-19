@@ -1,7 +1,17 @@
 import React from 'react';
 import './card.css'
 
-const Card = () => <h1>Card</h1>
+const pupCard = props => (
+    <div className="card">
+        <div className="img-container">
+            <img className="clickImage" 
+            alt={props.name} 
+            src={props.image} 
+            onClick={() => props.onClickHandler(props.id)} />
+        </div>
+    </div>
+
+);
 
 
-export default Card;
+export default pupCard;
