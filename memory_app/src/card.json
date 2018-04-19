@@ -1,0 +1,39 @@
+[
+    {
+    "id": 1, 
+    "image": "https://images.dog.ceo/breeds/beagle/n02088364_10731.jpg"
+    },
+    {
+    "id": 2, 
+    "image": "https://images.dog.ceo/breeds/affenpinscher/n02110627_1966.jpg"
+     },
+    {
+    "id": 3,
+    "image": "https://images.dog.ceo/breeds/beagle/n02088364_11509.jpg"
+    }, 
+    {
+    "id": 4,
+    "image": "https://images.dog.ceo/breeds/beagle/n02088364_12154.jpg"
+    }, 
+    {
+    "id": 5,
+    "image": "https://images.dog.ceo/breeds/beagle/n02088364_12124.jpg"
+    }, 
+    {
+    "id": 6,
+    "image": "https://images.dog.ceo/breeds/labrador/n02099712_57.jpg"
+    }, 
+    {
+    "id": 7,
+    "image": "https://images.dog.ceo/breeds/redbone/n02090379_4402.jpg"
+     }, 
+     {
+    "id": 8,
+    "image": "https://images.dog.ceo/breeds/dane-great/n02109047_12966.jpg"
+    }, 
+    {
+    "id": 9,
+    "image": "https://images.dog.ceo/breeds/hound-afghan/n02088094_11953.jpg"
+     }
+
+]
