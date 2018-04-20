@@ -4,7 +4,8 @@ import "./footer.css";
 
 const Footer = () => (
   <footer className="footer">
-    <span> Copyright 2018 Quintessa Anderson</span>
+    <p> Copyright 2018 Built and Designed by Quintessa Anderson. You can find the 
+          code<a href="https://github.com/GrandSuccess87/REACT.JS-MemoryGame" target="_blank" rel="noopener noreferrer"> here</a>.</p>
   </footer>
 );
 

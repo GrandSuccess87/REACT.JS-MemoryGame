@@ -13,44 +13,33 @@ import pups from './card.json'
 class App extends Component {
 
     state = {
-      status: "Click an Image to begin!",
-      pups:pups,
+      //set status to empty string
+      status: "",
+      pups,
       clickedIds: [],
       score: 0,
       topScore: 0,
     };
 
     componentDidMount () {
-
+      this.shufflePupCards(pups);
     }
+
 // method of shuffling cards
 
-shuffleCardArray = id => {
+shufflePupCards = id => {
+  console.log('click');
   let clickedIds = this.state.clickedIds;
-
-// Use Durstenfeld shuffle array algorith
-// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-
-for(var i = pups.length - 1; i > 0; i--) {
-  var q = Math.floor(Math.random() * (i + 1));
-  //ES6
-  [pups[i], pups[q]] = [pups[q], pups[i]];
-
-  // prior to ES6
-  // var random = pups[i];
-  // pups[i] = pups[q];
-  // pups[j] = random;
-
-}
-
-  // if statement for if user clicks the same id - Game Over
+   // Set this.state.friends equal to the new friends array
+  //  this.setState({ pups });
+   
+  // if statement for if user clicks the same id - Game Over -- okay to use if statement here since outside of render method
   if(clickedIds.includes(id)){
     this.setState({
+      clickedIds: [],
+      score: 0, 
       status: 'You guessed Incorrectly, Game Over! Click an Image to Play Again',      
-      pups:pups,
-      clickedIds: [], 
-      topScore: this.state.score > this.state.topScore ? this.state.score : this.state.topScore,
-      score: 0,       
+      
     });
     
       console.log('Game Over!');
@@ -58,31 +47,50 @@ for(var i = pups.length - 1; i > 0; i--) {
   } else {
     // otherwise push the id the user clicked to the clickedIds array
      clickedIds.push(id);
-     this.shuffleCardArray(pups);
-     
+    //  this.shuffleCardArray(pups);
+       
+      // if the user clicks nine images in a row without double clicking on an image - User Wins
+    if(clickedIds === 9){
+      this.setState({
+        clickedIds: [], 
+        score: this.state.score + 1, 
+        status: 'Congratulations! You Won!! Click an Image to Play Again'
+      });
+      console.log('You Win!');  
+      // return;
   }
 
-  // if the user clicks nine images in a row - User Wins
-if(clickedIds === 9){
-  this.setState({pups: pups, score: this.state.score + 1, status: 'Congratulations! You Won!! Click an Image to Play Again'});
-  console.log('You Win!');  
-  console.log('Your score is: ' + clickedIds.length);
-  // return;
+      this.setState({pups, clickedIds, score: clickedIds.length, status:" "})
 
-}}
+  // Use Durstenfeld shuffle array algorithm
+// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+// this.setState({ pups, clickedPuppyIds, score: clickedPuppyIds.length, status: " " });
 
+    for(let p = pups.length - 1; p > 0; p--) {
+      let q = Math.floor(Math.random() * (p + 1));
+      // ES6
+      [pups[p], pups[q]] = [pups[q], pups[p]];
+
+    // prior to ES6
+    // let random = pups[i];
+    // pups[i] = pups[q];
+    // pups[j] = random;
+
+
+    } 
+  }  
+}
 
 render () {
     return (
-      <div>
+      <div className="gameContainer">
       <Title/>
-      <Header count = {this.state.score} topScore = {this.state.topScore}/>
-      <Jumbotron >
-      </Jumbotron>
+      <Header score = {this.state.score} topScore = {this.state.topScore} status = {this.state.status}/>
+      <Jumbotron/>
       <Wrapper>
         {this.state.pups.map((pups, i) => (
           <Card
-            onClickHandler={this.onClickHandler}
+            shufflePupCards={this.shufflePupCards}
             id={pups.id}
             key={pups.id}
             image={pups.image}
