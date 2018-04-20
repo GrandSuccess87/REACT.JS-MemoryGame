@@ -2,9 +2,9 @@ import React from 'react';
 import './card.css'
 
 const Card = props => (
-    <div className="card img-container hover">
-        <div className="card-container">
-            <img className="clickImage shuffleCard" 
+    <div className="container hover">
+        <div className="card-container img-container">
+            <img className="clickImage pupImage card shuffleCard" 
 
             alt={props.name} 
             src={props.image} 
