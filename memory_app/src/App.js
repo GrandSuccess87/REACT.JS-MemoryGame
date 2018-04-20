@@ -53,7 +53,7 @@ shufflePupCards = id => {
     if(clickedIds === 9){
       this.setState({
         clickedIds: [], 
-        score: this.state.score + 1, 
+        score: 0, 
         status: 'Congratulations! You Won!! Click an Image to Play Again'
       });
       console.log('You Win!');  
