@@ -60,7 +60,7 @@ shufflePupCards = id => {
       // return;
   }
 
-      this.setState({pups, clickedIds, score: clickedIds.length, status:" "})
+      this.setState({pups, clickedIds, score: clickedIds.length, topScore: this.state.score > this.state.topScore ? this.state.score : this.state.topScore, status:" "})
 
   // Use Durstenfeld shuffle array algorithm
 // https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
