@@ -1,21 +1,26 @@
 .footer {
     min-height: 100px;
-    background: #c02ec0;
-    position: relative;
+    background: rgb(12, 74, 206);
     font-family: "Arial Black", Gadget, sans-serif;
+
   }
 
-p {
-  text-align: "right";
+.footer-text {
+  text-align: center;
+  padding-top: 35px;
   
 }
 
   
 .footer span {
-position: absolute;
+position: fixed;
 bottom: 0;
 left: 0;
 right: 0;
 padding: 3px;
 background: #006bff;
+color: white;
+width: 100%;
+
+
 }

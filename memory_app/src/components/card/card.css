@@ -1,6 +1,7 @@
 body {
   background-image: url("https://www.jjlawnserviceinc.com/wp-content/uploads/2014/08/sky-grass-background-reduced.jpg");
-  background-color: blanchedalmond; 
+  background-color: blanchedalmond;
+  background-repeat: no; 
 }
 
 .card {

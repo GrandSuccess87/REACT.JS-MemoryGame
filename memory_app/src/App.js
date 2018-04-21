@@ -27,12 +27,23 @@ class App extends Component {
 
 // method of shuffling cards
 
-shufflePupCards = id => {
+shufflePupCards = () => {
   console.log('click');
+  
+
+// Use Durstenfeld shuffle array algorithm
+// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
+
+for(let p = pups.length - 1; p > 0; p--) {
+  let q = Math.floor(Math.random() * (p + 1));
+  // ES6
+  [pups[p], pups[q]] = [pups[q], pups[p]];
+
+} 
+}
+ 
+onClickCardHandler = id => {
   let clickedIds = this.state.clickedIds;
-   // Set this.state.friends equal to the new friends array
-  //  this.setState({ pups });
-   
   // if statement for if user clicks the same id - Game Over -- okay to use if statement here since outside of render method
   if(clickedIds.includes(id)){
     this.setState({
@@ -61,24 +72,9 @@ shufflePupCards = id => {
   }
 
       this.setState({pups, clickedIds, score: clickedIds.length, topScore: this.state.score > this.state.topScore ? this.state.score : this.state.topScore, status:" "})
-
-  // Use Durstenfeld shuffle array algorithm
-// https://stackoverflow.com/questions/2450954/how-to-randomize-shuffle-a-javascript-array
-// this.setState({ pups, clickedPuppyIds, score: clickedPuppyIds.length, status: " " });
-
-    for(let p = pups.length - 1; p > 0; p--) {
-      let q = Math.floor(Math.random() * (p + 1));
-      // ES6
-      [pups[p], pups[q]] = [pups[q], pups[p]];
-
-    // prior to ES6
-    // let random = pups[i];
-    // pups[i] = pups[q];
-    // pups[j] = random;
-
-
-    } 
+ 
   }  
+    this.shufflePupCards();
 }
 
 render () {
@@ -90,7 +86,7 @@ render () {
       <Wrapper>
         {this.state.pups.map((pups, i) => (
           <Card
-            shufflePupCards={this.shufflePupCards}
+          onClickCardHandler={this.onClickCardHandler}
             id={pups.id}
             key={pups.id}
             image={pups.image}
