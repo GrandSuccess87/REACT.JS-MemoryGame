@@ -1,10 +1,7 @@
 # REACT.JS-MemoryGame
 A memory game app that uses ReactJS. 
 
-(application's UI in components, manage component state, and respond to user events).
-
-
-Components
+Application's UI in components, component state is managed, and responds to user events.
 
 Card
 The card component is where the puppy images are displayed.
