@@ -10,7 +10,7 @@ Score: The score component is where the score and updated win/lose status is dis
 Wrapper: The Wrapper component wraps the card component.
 
 Below you will find some information on how to perform common tasks.
-You can find the most recent version of this guide here (https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md). 
+You can find the most recent version of this guide here [https://github.com/facebook/create-react-app/blob/master/packages/react-scripts/template/README.md]. 
 
 This application renders different images to the screen. Each image listens for click events.
 
