@@ -36,7 +36,7 @@ shufflePupCards = () => {
 
 for(let p = pups.length - 1; p > 0; p--) {
   let q = Math.floor(Math.random() * (p + 1));
-  // ES6
+  // ES6 Swap alogrithm 
   [pups[p], pups[q]] = [pups[q], pups[p]];
 
 } 
@@ -70,10 +70,12 @@ onClickCardHandler = id => {
       console.log('You Win!');  
       // return;
   }
-
+      // Use a ternary operator that will evaluate if the condition is truthy.  
+      // If current score is greater than topScore then the returned value of the score is topScore otherwise the value returns topScore.
       this.setState({pups, clickedIds, score: clickedIds.length, topScore: this.state.score > this.state.topScore ? this.state.score : this.state.topScore, status:" "})
  
-  }  
+  } 
+    // Invoke shufflePupCards Function
     this.shufflePupCards();
 }
 
